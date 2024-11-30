@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter_07_Submit_form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+        }
+        .form-container {
+            margin-top: 10%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .form-section {
+            margin-bottom: 30px;
+        }
+        .form-section h2 {
+            margin-top: 0;
+            animation: slideIn 1s ease-out;
+            color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        label {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0 5px;
+            transition: top 0.3s, font-size 0.3s, color 0.3s;
+            pointer-events: none;
+        }
+        input, select, textarea, button {
+            width: 50%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: transparent;
+            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        input:focus + label, input:not(:placeholder-shown) + label,
+        textarea:focus + label, textarea:not(:placeholder-shown) + label,
+        select:focus + label, select:not(:placeholder-shown) + label {
+            top: -10px;
+            font-size: 12px;
+            color: #555;
+        }
+        input:hover, select:hover, textarea:hover, button:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #888;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        input:focus, select:focus, textarea:focus, button:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: #555;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            border: none;
+        }
+        button:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+    
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <form action="/submit" method="post">
+            
+            <div class="form-section">
+                <h2>Sign_up </h2>
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder=" ">
+                    <label for="name">Name:</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder=" ">
+                    <label for="email">Email:</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required placeholder=" " minlength="8">
+                    <label for="password">Password:</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="date" id="date" name="date" required placeholder=" ">
+                    <label for="date">Date of Birth:</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" id="number" name="number"  placeholder=" ">
+                    <label for="number">Phone Number:</label>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="form-group">
+                    <select id="gender" name="gender" required>
+                        <option value="select" disabled selected> Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <label for="gender">Gender:</label>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="address" name="address" rows="4" required placeholder=" "></textarea>
+                    <label for="address">Address:</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="file" id="file" name="file">
+                    <label for="file">Upload a file:</label>
+                </div>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
